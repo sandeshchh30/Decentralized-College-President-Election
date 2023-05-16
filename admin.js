@@ -8,6 +8,7 @@ async function connectWalletAdmin() {
     if (window.ethereum) {
         await window.ethereum.send('eth_requestAccounts');
         window.web3 = new Web3(window.ethereum);
+        document.getElementById('content').style.display = "none";
 
         const contract = new web3.eth.Contract(ABI, CONTRACT_ADDRESS);
         let accounts = await web3.eth.getAccounts();
